@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bekc6ovv2yfgj"
-path="res://.godot/imported/index.png-c2d8175aa2006ac735a751c5803e019d.ctex"
+uid="uid://bct3vwmsem6gx"
+path="res://.godot/imported/tank_chasis.png-d3a8af3ad2a37565236db9afb5036ff3.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://export/web/index.png"
-dest_files=["res://.godot/imported/index.png-c2d8175aa2006ac735a751c5803e019d.ctex"]
+source_file="res://assets/tank_chasis.png"
+dest_files=["res://.godot/imported/tank_chasis.png-d3a8af3ad2a37565236db9afb5036ff3.ctex"]
 
 [params]
 

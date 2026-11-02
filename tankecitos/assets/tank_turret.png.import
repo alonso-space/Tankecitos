@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://1or48ro62ged"
-path="res://.godot/imported/index.apple-touch-icon.png-aebfb1e41ce4a993e231d731c37e24be.ctex"
+uid="uid://23dpgg87pnlr"
+path="res://.godot/imported/tank_turret.png-165ea3a26e66aeb9adeba593549accfc.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://export/web/index.apple-touch-icon.png"
-dest_files=["res://.godot/imported/index.apple-touch-icon.png-aebfb1e41ce4a993e231d731c37e24be.ctex"]
+source_file="res://assets/tank_turret.png"
+dest_files=["res://.godot/imported/tank_turret.png-165ea3a26e66aeb9adeba593549accfc.ctex"]
 
 [params]
 

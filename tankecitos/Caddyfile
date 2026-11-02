@@ -1,0 +1,27 @@
+# HTTPS local para probar desde el móvil. Un solo origen: la página y el WebSocket
+# entran por el mismo puerto, así solo hay que aceptar un certificado por dispositivo.
+#
+#   HOST_IP=$(hostname -I | awk '{print $1}') caddy run --config Caddyfile
+#
+# Abrir:  https://<IP-del-PC>:8443
+
+{
+	# No intentar redirecciones HTTP->HTTPS en el puerto 80 (no lo necesitamos)
+	auto_https disable_redirects
+}
+
+https://{$HOST_IP}:8443 {
+	# CA interna de Caddy: certificado para la IP, sin dominio
+	tls internal
+
+	# El cliente conecta a wss://<IP>:8443/ws; Caddy lo reenvía al servidor Godot (ws, sin cifrar)
+	handle /ws {
+		reverse_proxy 127.0.0.1:9080
+	}
+
+	# El resto es el cliente exportado
+	handle {
+		root * export/web
+		file_server
+	}
+}

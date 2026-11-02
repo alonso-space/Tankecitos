@@ -1,6 +1,15 @@
 [gd_scene format=3 uid="uid://b8gaymr5458o6"]
 
 [ext_resource type="Script" uid="uid://diry5kvaj8fpv" path="res://server/server.gd" id="1_pcfvm"]
+[ext_resource type="PackedScene" path="res://maps/Arena.tscn" id="2_arena"]
 
-[node name="Main" type="Node" unique_id=1041854990]
+[node name="Main" type="Node" unique_id=54510071]
 script = ExtResource("1_pcfvm")
+
+[node name="World" type="Node2D" parent="." unique_id=1134973629]
+
+[node name="Arena" parent="World" unique_id=1554023877 instance=ExtResource("2_arena")]
+
+[node name="Tanks" type="Node2D" parent="World" unique_id=479298194]
+
+[node name="Bullets" type="Node2D" parent="World" unique_id=794021150]

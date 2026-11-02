@@ -1,0 +1,26 @@
+# Cómo lo ejecuto yo (desde la carpeta tankecitos/ del repo)
+
+Servidor (terminal 1):
+  ~/dev_tools/godot/Godot_v4.7.2-stable_linux.x86_64 --headless --path . res://server/server.tscn
+
+Exportar el cliente web (terminal 2; o desde el editor: Project -> Export -> Web):
+  ~/dev_tools/godot/Godot_v4.7.2-stable_linux.x86_64 --headless --path . --export-release "Web" export/web/index.html
+
+Servir el cliente (terminal 2):
+  cd export/web && python3 -m http.server 8000
+
+HTTPS para el móvil (terminal 3, desde tankecitos/; Godot en web exige contexto seguro):
+  HOST_IP=$(hostname -I | awk '{print $1}') caddy run --config Caddyfile
+  Móvil:  https://<IP-del-PC>:8443   (aceptar la advertencia del certificado una vez)
+  Con Caddy no hace falta el python3 -m http.server. Firewall: sudo ufw allow 8443/tcp
+
+Navegador en el PC (sin Caddy):   http://localhost:8000   (Ctrl+Shift+R tras reexportar)
+Desde el móvil (misma WiFi):   http://<IP-del-PC>:8000   (IP con: hostname -I)
+Si hay firewall:   sudo ufw allow 8000/tcp && sudo ufw allow 9080/tcp
+Probar joysticks desde el PC:  http://localhost:8000/?touch=1
+
+Pruebas (el servidor debe estar corriendo solo para la de humo):
+  godot --headless --path . res://tests/combat_test.tscn
+  godot --headless --path . res://tests/smoke_test.tscn
+
+Si el puerto está ocupado: ss -ltnp | grep 9080  y  kill <pid>
