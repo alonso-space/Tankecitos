@@ -1,0 +1,26 @@
+# Versión de tankecitos/Caddyfile para docker-compose: el servidor de juego es el servicio "server".
+#
+#   HTTPS (móvil):   https://<IP-del-PC>:8443   (HOST_IP lo pasa docker-compose)
+#   HTTP (este PC):  http://localhost:8000      (el cliente conecta directo al puerto 9080)
+
+{
+	auto_https disable_redirects
+}
+
+https://{$HOST_IP}:8443 {
+	tls internal
+
+	handle /ws {
+		reverse_proxy server:9080
+	}
+
+	handle {
+		root * /srv
+		file_server
+	}
+}
+
+:8000 {
+	root * /srv
+	file_server
+}

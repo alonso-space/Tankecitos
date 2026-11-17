@@ -9,7 +9,7 @@ script = ExtResource("1_6t3qf")
 
 [node name="World" type="Node2D" parent="." unique_id=758365573]
 
-[node name="MapSlot" type="Node2D" parent="World" unique_id=268592248]
+[node name="MapSlot" type="Node2D" parent="World"]
 
 [node name="Tanks" type="Node2D" parent="World" unique_id=339775092]
 
@@ -43,7 +43,7 @@ grow_horizontal = 0
 theme_override_font_sizes/font_size = 36
 horizontal_alignment = 2
 
-[node name="MapLabel" type="Label" parent="Hud" unique_id=655858079]
+[node name="MapLabel" type="Label" parent="Hud"]
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
