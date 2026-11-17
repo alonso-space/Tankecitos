@@ -5,6 +5,7 @@
 
 {
 	auto_https disable_redirects
+	default_sni {$HOST_IP}
 }
 
 https://{$HOST_IP}:8443 {
