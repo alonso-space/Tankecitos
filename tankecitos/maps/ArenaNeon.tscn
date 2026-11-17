@@ -1,0 +1,294 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://maps/game_map.gd" id="1_map"]
+[ext_resource type="PackedScene" path="res://maps/Wall.tscn" id="2_wall"]
+
+[node name="ArenaNeon" type="Node2D"]
+script = ExtResource("1_map")
+display_name = "Arena Neón"
+size_category = 0
+play_size = Vector2(1000, 1000)
+spawn_points = PackedVector2Array(350, -150, -350, 150, -150, -350, 150, 350, 0, 0, 150, -350)
+wall_color = Color(0.8, 0.2, 0.75, 1)
+obstacle_color = Color(0.1, 0.65, 0.82, 1)
+
+[node name="Background" type="ColorRect" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -500
+offset_top = -500
+offset_right = 500
+offset_bottom = 500
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.08, 0.05, 0.17, 1)
+
+[node name="Decor" type="Node2D" parent="."]
+
+[node name="d0" type="ColorRect" parent="Decor"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -403
+offset_top = -500
+offset_right = -397
+offset_bottom = 500
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.4, 0.18, 0.7, 0.75)
+
+[node name="d1" type="ColorRect" parent="Decor"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -500
+offset_top = -403
+offset_right = 500
+offset_bottom = -397
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.4, 0.18, 0.7, 0.75)
+
+[node name="d2" type="ColorRect" parent="Decor"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -203
+offset_top = -500
+offset_right = -197
+offset_bottom = 500
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.4, 0.18, 0.7, 0.75)
+
+[node name="d3" type="ColorRect" parent="Decor"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -500
+offset_top = -203
+offset_right = 500
+offset_bottom = -197
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.4, 0.18, 0.7, 0.75)
+
+[node name="d4" type="ColorRect" parent="Decor"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -3
+offset_top = -500
+offset_right = 3
+offset_bottom = 500
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.4, 0.18, 0.7, 0.75)
+
+[node name="d5" type="ColorRect" parent="Decor"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -500
+offset_top = -3
+offset_right = 500
+offset_bottom = 3
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.4, 0.18, 0.7, 0.75)
+
+[node name="d6" type="ColorRect" parent="Decor"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 197
+offset_top = -500
+offset_right = 203
+offset_bottom = 500
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.4, 0.18, 0.7, 0.75)
+
+[node name="d7" type="ColorRect" parent="Decor"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -500
+offset_top = 197
+offset_right = 500
+offset_bottom = 203
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.4, 0.18, 0.7, 0.75)
+
+[node name="d8" type="ColorRect" parent="Decor"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 397
+offset_top = -500
+offset_right = 403
+offset_bottom = 500
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.4, 0.18, 0.7, 0.75)
+
+[node name="d9" type="ColorRect" parent="Decor"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -500
+offset_top = 397
+offset_right = 500
+offset_bottom = 403
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.4, 0.18, 0.7, 0.75)
+
+[node name="d10" type="ColorRect" parent="Decor"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -5
+offset_top = -500
+offset_right = 5
+offset_bottom = 500
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.1, 0.9, 1, 0.45)
+
+[node name="d11" type="ColorRect" parent="Decor"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -500
+offset_top = -5
+offset_right = 500
+offset_bottom = 5
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.1, 0.9, 1, 0.45)
+
+[node name="Walls" type="Node" parent="."]
+
+[node name="border_top" parent="Walls" instance=ExtResource("2_wall")]
+position = Vector2(0, -550)
+scale = Vector2(12, 1)
+
+[node name="border_bottom" parent="Walls" instance=ExtResource("2_wall")]
+position = Vector2(0, 550)
+scale = Vector2(12, 1)
+
+[node name="border_left" parent="Walls" instance=ExtResource("2_wall")]
+position = Vector2(-550, 0)
+scale = Vector2(1, 10)
+
+[node name="border_right" parent="Walls" instance=ExtResource("2_wall")]
+position = Vector2(550, 0)
+scale = Vector2(1, 10)
+
+[node name="wall_0" parent="Walls" instance=ExtResource("2_wall")]
+position = Vector2(425, 425)
+scale = Vector2(1.5, 1.5)
+
+[node name="wall_1" parent="Walls" instance=ExtResource("2_wall")]
+position = Vector2(-425, 425)
+scale = Vector2(1.5, 1.5)
+
+[node name="wall_2" parent="Walls" instance=ExtResource("2_wall")]
+position = Vector2(425, -425)
+scale = Vector2(1.5, 1.5)
+
+[node name="wall_3" parent="Walls" instance=ExtResource("2_wall")]
+position = Vector2(-425, -425)
+scale = Vector2(1.5, 1.5)
+
+[node name="wall_4" parent="Walls" instance=ExtResource("2_wall")]
+position = Vector2(375, 450)
+scale = Vector2(2.5, 1)
+
+[node name="wall_5" parent="Walls" instance=ExtResource("2_wall")]
+position = Vector2(-375, 450)
+scale = Vector2(2.5, 1)
+
+[node name="wall_6" parent="Walls" instance=ExtResource("2_wall")]
+position = Vector2(375, -450)
+scale = Vector2(2.5, 1)
+
+[node name="wall_7" parent="Walls" instance=ExtResource("2_wall")]
+position = Vector2(-375, -450)
+scale = Vector2(2.5, 1)
+
+[node name="wall_8" parent="Walls" instance=ExtResource("2_wall")]
+position = Vector2(450, 375)
+scale = Vector2(1, 2.5)
+
+[node name="wall_9" parent="Walls" instance=ExtResource("2_wall")]
+position = Vector2(-450, 375)
+scale = Vector2(1, 2.5)
+
+[node name="wall_10" parent="Walls" instance=ExtResource("2_wall")]
+position = Vector2(450, -375)
+scale = Vector2(1, 2.5)
+
+[node name="wall_11" parent="Walls" instance=ExtResource("2_wall")]
+position = Vector2(-450, -375)
+scale = Vector2(1, 2.5)
+
+[node name="Obstacles" type="Node" parent="."]
+
+[node name="obstacle_0" parent="Obstacles" instance=ExtResource("2_wall")]
+position = Vector2(180, 180)
+scale = Vector2(1, 1)
+
+[node name="obstacle_1" parent="Obstacles" instance=ExtResource("2_wall")]
+position = Vector2(-180, 180)
+scale = Vector2(1, 1)
+
+[node name="obstacle_2" parent="Obstacles" instance=ExtResource("2_wall")]
+position = Vector2(180, -180)
+scale = Vector2(1, 1)
+
+[node name="obstacle_3" parent="Obstacles" instance=ExtResource("2_wall")]
+position = Vector2(-180, -180)
+scale = Vector2(1, 1)

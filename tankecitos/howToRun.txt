@@ -22,5 +22,6 @@ Probar joysticks desde el PC:  http://localhost:8000/?touch=1
 Pruebas (el servidor debe estar corriendo solo para la de humo):
   godot --headless --path . res://tests/combat_test.tscn
   godot --headless --path . res://tests/smoke_test.tscn
+  godot --headless --path . res://tests/maps_test.tscn   # categorías, tamaños y spawns de los 16 mapas
 
 Si el puerto está ocupado: ss -ltnp | grep 9080  y  kill <pid>

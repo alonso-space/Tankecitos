@@ -1,38 +1,37 @@
 [gd_scene format=3 uid="uid://bhutvyxow7sp"]
 
 [ext_resource type="Script" uid="uid://dpwjexypf7mop" path="res://client/client.gd" id="1_6t3qf"]
-[ext_resource type="PackedScene" path="res://maps/Arena.tscn" id="2_arena"]
-[ext_resource type="Script" path="res://client/camera_fit.gd" id="3_camera"]
-[ext_resource type="Script" path="res://client/input_controller.gd" id="4_input"]
+[ext_resource type="Script" uid="uid://dpjxmwc4ftm1l" path="res://client/camera_fit.gd" id="3_camera"]
+[ext_resource type="Script" uid="uid://bsk3mgjaoe8jb" path="res://client/input_controller.gd" id="4_input"]
 
-[node name="Main" type="Node"]
+[node name="Main" type="Node" unique_id=1163267884]
 script = ExtResource("1_6t3qf")
 
-[node name="World" type="Node2D" parent="."]
+[node name="World" type="Node2D" parent="." unique_id=758365573]
 
-[node name="Arena" parent="World" instance=ExtResource("2_arena")]
+[node name="MapSlot" type="Node2D" parent="World" unique_id=268592248]
 
-[node name="Tanks" type="Node2D" parent="World"]
+[node name="Tanks" type="Node2D" parent="World" unique_id=339775092]
 
-[node name="Bullets" type="Node2D" parent="World"]
+[node name="Bullets" type="Node2D" parent="World" unique_id=1184160169]
 
-[node name="Camera2D" type="Camera2D" parent="World"]
+[node name="Camera2D" type="Camera2D" parent="World" unique_id=335090]
 script = ExtResource("3_camera")
 
-[node name="InputController" type="Node" parent="."]
+[node name="InputController" type="Node" parent="." unique_id=1994116663]
 script = ExtResource("4_input")
 
-[node name="Hud" type="CanvasLayer" parent="."]
+[node name="Hud" type="CanvasLayer" parent="." unique_id=1721230654]
 layer = 20
 
-[node name="StatusLabel" type="Label" parent="Hud"]
+[node name="StatusLabel" type="Label" parent="Hud" unique_id=144181463]
 offset_left = 20.0
 offset_top = 10.0
 offset_right = 800.0
 offset_bottom = 70.0
 theme_override_font_sizes/font_size = 36
 
-[node name="PlayersLabel" type="Label" parent="Hud"]
+[node name="PlayersLabel" type="Label" parent="Hud" unique_id=1475156285]
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
@@ -44,7 +43,19 @@ grow_horizontal = 0
 theme_override_font_sizes/font_size = 36
 horizontal_alignment = 2
 
-[node name="RotateHint" type="Label" parent="Hud"]
+[node name="MapLabel" type="Label" parent="Hud" unique_id=655858079]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -820.0
+offset_top = 60.0
+offset_right = -20.0
+offset_bottom = 120.0
+grow_horizontal = 0
+theme_override_font_sizes/font_size = 36
+horizontal_alignment = 2
+
+[node name="RotateHint" type="Label" parent="Hud" unique_id=257514850]
 visible = false
 anchors_preset = 15
 anchor_right = 1.0

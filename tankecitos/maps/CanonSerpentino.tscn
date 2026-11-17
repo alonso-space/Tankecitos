@@ -1,0 +1,154 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://maps/game_map.gd" id="1_map"]
+[ext_resource type="PackedScene" path="res://maps/Wall.tscn" id="2_wall"]
+
+[node name="CanonSerpentino" type="Node2D"]
+script = ExtResource("1_map")
+display_name = "Cañón Serpentino"
+size_category = 2
+play_size = Vector2(3000, 1800)
+spawn_points = PackedVector2Array(1350, -750, -1350, 750, -400, -750, 450, 750, -1350, -550, 1350, 550, -550, 150, 550, -150, -250, 750, 1250, -100, -1250, 100, 250, -750, -800, 650, -200, -150, 200, 150, 900, 650, -950, -750, 950, -550)
+wall_color = Color(0.2, 0.08, 0.05, 1)
+obstacle_color = Color(0.66, 0.34, 0.18, 1)
+
+[node name="Background" type="ColorRect" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -1500
+offset_top = -900
+offset_right = 1500
+offset_bottom = 900
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.45, 0.22, 0.17, 1)
+
+[node name="Decor" type="Node2D" parent="."]
+
+[node name="d0" type="ColorRect" parent="Decor"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -1500
+offset_top = -680
+offset_right = 1500
+offset_bottom = -560
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.4, 0.18, 0.1, 0.3)
+
+[node name="d1" type="ColorRect" parent="Decor"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -1500
+offset_top = -150
+offset_right = 1500
+offset_bottom = -70
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.4, 0.18, 0.1, 0.3)
+
+[node name="d2" type="ColorRect" parent="Decor"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -1500
+offset_top = 345
+offset_right = 1500
+offset_bottom = 495
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.4, 0.18, 0.1, 0.3)
+
+[node name="d3" type="ColorRect" parent="Decor"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -1500
+offset_top = 730
+offset_right = 1500
+offset_bottom = 790
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.4, 0.18, 0.1, 0.3)
+
+[node name="Walls" type="Node" parent="."]
+
+[node name="border_top" parent="Walls" instance=ExtResource("2_wall")]
+position = Vector2(0, -950)
+scale = Vector2(32, 1)
+
+[node name="border_bottom" parent="Walls" instance=ExtResource("2_wall")]
+position = Vector2(0, 950)
+scale = Vector2(32, 1)
+
+[node name="border_left" parent="Walls" instance=ExtResource("2_wall")]
+position = Vector2(-1550, 0)
+scale = Vector2(1, 18)
+
+[node name="border_right" parent="Walls" instance=ExtResource("2_wall")]
+position = Vector2(1550, 0)
+scale = Vector2(1, 18)
+
+[node name="wall_0" parent="Walls" instance=ExtResource("2_wall")]
+position = Vector2(1150, 350)
+scale = Vector2(2, 2)
+
+[node name="wall_1" parent="Walls" instance=ExtResource("2_wall")]
+position = Vector2(-1150, 350)
+scale = Vector2(2, 2)
+
+[node name="wall_2" parent="Walls" instance=ExtResource("2_wall")]
+position = Vector2(1150, -350)
+scale = Vector2(2, 2)
+
+[node name="wall_3" parent="Walls" instance=ExtResource("2_wall")]
+position = Vector2(-1150, -350)
+scale = Vector2(2, 2)
+
+[node name="wall_4" parent="Walls" instance=ExtResource("2_wall")]
+position = Vector2(375, 350)
+scale = Vector2(2, 2)
+
+[node name="wall_5" parent="Walls" instance=ExtResource("2_wall")]
+position = Vector2(-375, 350)
+scale = Vector2(2, 2)
+
+[node name="wall_6" parent="Walls" instance=ExtResource("2_wall")]
+position = Vector2(375, -350)
+scale = Vector2(2, 2)
+
+[node name="wall_7" parent="Walls" instance=ExtResource("2_wall")]
+position = Vector2(-375, -350)
+scale = Vector2(2, 2)
+
+[node name="Obstacles" type="Node" parent="."]
+
+[node name="obstacle_0" parent="Obstacles" instance=ExtResource("2_wall")]
+position = Vector2(-750, -200)
+scale = Vector2(1, 14)
+
+[node name="obstacle_1" parent="Obstacles" instance=ExtResource("2_wall")]
+position = Vector2(750, -200)
+scale = Vector2(1, 14)
+
+[node name="obstacle_2" parent="Obstacles" instance=ExtResource("2_wall")]
+position = Vector2(0, 200)
+scale = Vector2(1, 14)

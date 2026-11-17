@@ -2,6 +2,8 @@ extends Node
 ## Cliente del navegador. No simula nada: manda el input al servidor y dibuja
 ## el estado que este le devuelve en cada snapshot.
 
+const GameMapScript := preload("res://maps/game_map.gd")
+const CameraFit := preload("res://client/camera_fit.gd")
 const TANK_VIEW_SCENE := preload("res://client/TankView.tscn")
 const BULLET_VIEW_SCENE := preload("res://client/BulletView.tscn")
 
@@ -9,16 +11,20 @@ const BULLET_VIEW_SCENE := preload("res://client/BulletView.tscn")
 var player_slots: Dictionary[int, int] = {}
 
 var _connected := false
+var _map: GameMapScript
 var _input_send_left := 0.0
 var _tank_views: Dictionary[int, TankView] = {}
 var _bullet_views: Dictionary[int, BulletView] = {}
 
 @onready var _world: Node2D = $World
+@onready var _map_slot: Node2D = $World/MapSlot
+@onready var _camera := $World/Camera2D as CameraFit
 @onready var _tanks_root: Node2D = $World/Tanks
 @onready var _bullets_root: Node2D = $World/Bullets
 @onready var _input: InputController = $InputController
 @onready var _status_label: Label = $Hud/StatusLabel
 @onready var _players_label: Label = $Hud/PlayersLabel
+@onready var _map_label: Label = $Hud/MapLabel
 @onready var _rotate_hint: Label = $Hud/RotateHint
 
 
@@ -51,6 +57,7 @@ func _process(delta: float) -> void:
 	var my_view := _tank_views.get(multiplayer.get_unique_id()) as TankView
 	if my_view != null:
 		_input.origin = my_view.position
+		_camera.target = my_view
 		my_view.set_local_aim(_input.aim)
 
 	_input_send_left -= delta
@@ -107,6 +114,21 @@ func _on_server_disconnected() -> void:
 	_refresh_players_label()
 
 
+# El servidor manda el mapa al entrar y cada vez que cambia
+func _load_map(map_id: int) -> void:
+	if _map != null:
+		_map_slot.remove_child(_map)
+		_map.queue_free()
+	_map = GameConfig.MAPS[map_id].instantiate() as GameMapScript
+	_map_slot.add_child(_map)
+	_camera.set_view_size(_map.view_size())
+	# Con la cámara siguiéndote, en los bordes se ve fuera del mapa: que parezca más muro, no gris
+	RenderingServer.set_default_clear_color(_map.wall_color)
+	_map_label.text = _map.display_name
+	# Los tanques saltan a otros puntos: se redibujan desde cero en vez de deslizarse por el mapa
+	_clear_views()
+
+
 func _clear_views() -> void:
 	for view in _tank_views.values():
 		view.queue_free()
@@ -117,6 +139,13 @@ func _clear_views() -> void:
 
 
 # --- RPC (mismos que en server.gd, ver el comentario allí) ---
+
+@rpc("authority", "call_remote", "reliable")
+func receive_map(new_map_id: int) -> void:
+	if new_map_id < 0 or new_map_id >= GameConfig.MAPS.size():
+		return
+	_load_map(new_map_id)
+
 
 @rpc("authority", "call_remote", "reliable")
 func receive_player_list(player_ids: PackedInt32Array, slots: PackedInt32Array) -> void:
