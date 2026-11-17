@@ -1,0 +1,1530 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://maps/game_map.gd" id="1_map"]
+[ext_resource type="PackedScene" path="res://maps/Wall.tscn" id="2_wall"]
+
+[node name="Asteroides" type="Node2D"]
+script = ExtResource("1_map")
+display_name = "Campo de Asteroides"
+size_category = 3
+play_size = Vector2(4000, 2500)
+spawn_points = PackedVector2Array(1850, -1100, -1850, 1100, -650, -1100, 650, 1100, 600, -350, -1850, -350, 1850, 350, -600, 400, 200, -1100, -250, -350, -1550, -1100, 1550, 1100, 1450, -400, -1450, 350, 250, 400, -1000, 1100, 1000, -1100, -200, 1100, 1050, 300, -1050, -300, -1100, -850, 1100, 850, 600, -850, -650, -600)
+wall_color = Color(0.24, 0.21, 0.38, 1)
+obstacle_color = Color(0.46, 0.43, 0.56, 1)
+
+[node name="Background" type="ColorRect" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -2000
+offset_top = -1250
+offset_right = 2000
+offset_bottom = 1250
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.05, 0.05, 0.12, 1)
+
+[node name="Decor" type="Node2D" parent="."]
+
+[node name="d0" type="ColorRect" parent="Decor"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -1650
+offset_top = -150
+offset_right = -150
+offset_bottom = 750
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.55, 0.1, 0.65, 0.13)
+
+[node name="d1" type="ColorRect" parent="Decor"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 200
+offset_top = -800
+offset_right = 1600
+offset_bottom = 0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.1, 0.35, 0.8, 0.13)
+
+[node name="d2" type="ColorRect" parent="Decor"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -683.966
+offset_top = -627.816
+offset_right = -673.966
+offset_bottom = -617.816
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(1, 1, 1, 0.87)
+
+[node name="d3" type="ColorRect" parent="Decor"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -812.932
+offset_top = 1084.304
+offset_right = -806.932
+offset_bottom = 1090.304
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(1, 1, 1, 0.95)
+
+[node name="d4" type="ColorRect" parent="Decor"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -1386.661
+offset_top = 309.561
+offset_right = -1378.661
+offset_bottom = 317.561
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(1, 1, 1, 0.725)
+
+[node name="d5" type="ColorRect" parent="Decor"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -1844.43
+offset_top = 1092.222
+offset_right = -1834.43
+offset_bottom = 1102.222
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(1, 1, 1, 0.578)
+
+[node name="d6" type="ColorRect" parent="Decor"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 24.528
+offset_top = 801.665
+offset_right = 32.528
+offset_bottom = 809.665
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(1, 1, 1, 0.582)
+
+[node name="d7" type="ColorRect" parent="Decor"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -1497.498
+offset_top = 117.37
+offset_right = -1487.498
+offset_bottom = 127.37
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(1, 1, 1, 0.617)
+
+[node name="d8" type="ColorRect" parent="Decor"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -1157.593
+offset_top = -746.949
+offset_right = -1143.593
+offset_bottom = -732.949
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(1, 1, 1, 0.536)
+
+[node name="d9" type="ColorRect" parent="Decor"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 765.199
+offset_top = 958.764
+offset_right = 773.199
+offset_bottom = 966.764
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(1, 1, 1, 0.768)
+
+[node name="d10" type="ColorRect" parent="Decor"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -1563.606
+offset_top = 720.371
+offset_right = -1557.606
+offset_bottom = 726.371
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(1, 1, 1, 0.818)
+
+[node name="d11" type="ColorRect" parent="Decor"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 944.221
+offset_top = 835.386
+offset_right = 952.221
+offset_bottom = 843.386
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(1, 1, 1, 0.543)
+
+[node name="d12" type="ColorRect" parent="Decor"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 1269.711
+offset_top = 993.466
+offset_right = 1283.711
+offset_bottom = 1007.466
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(1, 1, 1, 0.853)
+
+[node name="d13" type="ColorRect" parent="Decor"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -892.497
+offset_top = 301.966
+offset_right = -886.497
+offset_bottom = 307.966
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(1, 1, 1, 0.914)
+
+[node name="d14" type="ColorRect" parent="Decor"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -582.488
+offset_top = 68.335
+offset_right = -576.488
+offset_bottom = 74.335
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(1, 1, 1, 0.873)
+
+[node name="d15" type="ColorRect" parent="Decor"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 972.127
+offset_top = 1063.081
+offset_right = 986.127
+offset_bottom = 1077.081
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(1, 1, 1, 0.739)
+
+[node name="d16" type="ColorRect" parent="Decor"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 279.387
+offset_top = -237.655
+offset_right = 287.387
+offset_bottom = -229.655
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(1, 1, 1, 0.562)
+
+[node name="d17" type="ColorRect" parent="Decor"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -1907.109
+offset_top = 1156.594
+offset_right = -1893.109
+offset_bottom = 1170.594
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(1, 1, 1, 0.524)
+
+[node name="d18" type="ColorRect" parent="Decor"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 955.763
+offset_top = 621.378
+offset_right = 961.763
+offset_bottom = 627.378
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(1, 1, 1, 0.695)
+
+[node name="d19" type="ColorRect" parent="Decor"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 1888.946
+offset_top = 967.284
+offset_right = 1898.946
+offset_bottom = 977.284
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(1, 1, 1, 0.81)
+
+[node name="d20" type="ColorRect" parent="Decor"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 584.542
+offset_top = 771.231
+offset_right = 590.542
+offset_bottom = 777.231
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(1, 1, 1, 0.795)
+
+[node name="d21" type="ColorRect" parent="Decor"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -790.883
+offset_top = -983.62
+offset_right = -782.883
+offset_bottom = -975.62
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(1, 1, 1, 0.88)
+
+[node name="d22" type="ColorRect" parent="Decor"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 1647.286
+offset_top = 596.824
+offset_right = 1657.286
+offset_bottom = 606.824
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(1, 1, 1, 0.759)
+
+[node name="d23" type="ColorRect" parent="Decor"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 1144.049
+offset_top = -851.556
+offset_right = 1150.049
+offset_bottom = -845.556
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(1, 1, 1, 0.873)
+
+[node name="d24" type="ColorRect" parent="Decor"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 780.899
+offset_top = -627.226
+offset_right = 786.899
+offset_bottom = -621.226
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(1, 1, 1, 0.8)
+
+[node name="d25" type="ColorRect" parent="Decor"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -1514.523
+offset_top = -270.379
+offset_right = -1500.523
+offset_bottom = -256.379
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(1, 1, 1, 0.714)
+
+[node name="d26" type="ColorRect" parent="Decor"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -1020.427
+offset_top = -700.162
+offset_right = -1012.427
+offset_bottom = -692.162
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(1, 1, 1, 0.877)
+
+[node name="d27" type="ColorRect" parent="Decor"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -1313.43
+offset_top = -1143.773
+offset_right = -1305.43
+offset_bottom = -1135.773
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(1, 1, 1, 0.931)
+
+[node name="d28" type="ColorRect" parent="Decor"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 660.632
+offset_top = 643.085
+offset_right = 668.632
+offset_bottom = 651.085
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(1, 1, 1, 0.935)
+
+[node name="d29" type="ColorRect" parent="Decor"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -47.87
+offset_top = -564.267
+offset_right = -33.87
+offset_bottom = -550.267
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(1, 1, 1, 0.878)
+
+[node name="d30" type="ColorRect" parent="Decor"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -114.312
+offset_top = -206.963
+offset_right = -108.312
+offset_bottom = -200.963
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(1, 1, 1, 0.743)
+
+[node name="d31" type="ColorRect" parent="Decor"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -185.423
+offset_top = -751.123
+offset_right = -175.423
+offset_bottom = -741.123
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(1, 1, 1, 0.766)
+
+[node name="d32" type="ColorRect" parent="Decor"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -1813.958
+offset_top = 561.289
+offset_right = -1807.958
+offset_bottom = 567.289
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(1, 1, 1, 0.504)
+
+[node name="d33" type="ColorRect" parent="Decor"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 37.54
+offset_top = 425.964
+offset_right = 43.54
+offset_bottom = 431.964
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(1, 1, 1, 0.851)
+
+[node name="d34" type="ColorRect" parent="Decor"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -1530.901
+offset_top = 389.931
+offset_right = -1522.901
+offset_bottom = 397.931
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(1, 1, 1, 0.628)
+
+[node name="d35" type="ColorRect" parent="Decor"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 119.863
+offset_top = 755.944
+offset_right = 133.863
+offset_bottom = 769.944
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(1, 1, 1, 0.681)
+
+[node name="d36" type="ColorRect" parent="Decor"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 1340.235
+offset_top = -526.558
+offset_right = 1354.235
+offset_bottom = -512.558
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(1, 1, 1, 0.905)
+
+[node name="d37" type="ColorRect" parent="Decor"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 1393.228
+offset_top = -426.663
+offset_right = 1399.228
+offset_bottom = -420.663
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(1, 1, 1, 0.911)
+
+[node name="d38" type="ColorRect" parent="Decor"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 1828.626
+offset_top = 606.652
+offset_right = 1838.626
+offset_bottom = 616.652
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(1, 1, 1, 0.95)
+
+[node name="d39" type="ColorRect" parent="Decor"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 1884.585
+offset_top = 635.513
+offset_right = 1898.585
+offset_bottom = 649.513
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(1, 1, 1, 0.795)
+
+[node name="d40" type="ColorRect" parent="Decor"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 9.866
+offset_top = -246.012
+offset_right = 23.866
+offset_bottom = -232.012
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(1, 1, 1, 0.891)
+
+[node name="d41" type="ColorRect" parent="Decor"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 1827.681
+offset_top = 893.909
+offset_right = 1841.681
+offset_bottom = 907.909
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(1, 1, 1, 0.88)
+
+[node name="d42" type="ColorRect" parent="Decor"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 1652.116
+offset_top = -546.736
+offset_right = 1662.116
+offset_bottom = -536.736
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(1, 1, 1, 0.546)
+
+[node name="d43" type="ColorRect" parent="Decor"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -551.714
+offset_top = 671.732
+offset_right = -543.714
+offset_bottom = 679.732
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(1, 1, 1, 0.522)
+
+[node name="d44" type="ColorRect" parent="Decor"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 105.065
+offset_top = 851.455
+offset_right = 111.065
+offset_bottom = 857.455
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(1, 1, 1, 0.933)
+
+[node name="d45" type="ColorRect" parent="Decor"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 540.889
+offset_top = 772.617
+offset_right = 546.889
+offset_bottom = 778.617
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(1, 1, 1, 0.622)
+
+[node name="d46" type="ColorRect" parent="Decor"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 591.5
+offset_top = -380.72
+offset_right = 599.5
+offset_bottom = -372.72
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(1, 1, 1, 0.805)
+
+[node name="d47" type="ColorRect" parent="Decor"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -1619.073
+offset_top = 478.68
+offset_right = -1605.073
+offset_bottom = 492.68
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(1, 1, 1, 0.535)
+
+[node name="d48" type="ColorRect" parent="Decor"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 566.953
+offset_top = 561.44
+offset_right = 580.953
+offset_bottom = 575.44
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(1, 1, 1, 0.502)
+
+[node name="d49" type="ColorRect" parent="Decor"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 962.106
+offset_top = -849.774
+offset_right = 976.106
+offset_bottom = -835.774
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(1, 1, 1, 0.682)
+
+[node name="d50" type="ColorRect" parent="Decor"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -276.536
+offset_top = -940.031
+offset_right = -270.536
+offset_bottom = -934.031
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(1, 1, 1, 0.669)
+
+[node name="d51" type="ColorRect" parent="Decor"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -1804.427
+offset_top = 679.838
+offset_right = -1796.427
+offset_bottom = 687.838
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(1, 1, 1, 0.863)
+
+[node name="d52" type="ColorRect" parent="Decor"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 514.371
+offset_top = 774.983
+offset_right = 524.371
+offset_bottom = 784.983
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(1, 1, 1, 0.744)
+
+[node name="d53" type="ColorRect" parent="Decor"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -1681.118
+offset_top = 118.551
+offset_right = -1675.118
+offset_bottom = 124.551
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(1, 1, 1, 0.946)
+
+[node name="d54" type="ColorRect" parent="Decor"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 38.305
+offset_top = -1035.292
+offset_right = 52.305
+offset_bottom = -1021.292
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(1, 1, 1, 0.832)
+
+[node name="d55" type="ColorRect" parent="Decor"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 157.847
+offset_top = 642.659
+offset_right = 165.847
+offset_bottom = 650.659
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(1, 1, 1, 0.645)
+
+[node name="d56" type="ColorRect" parent="Decor"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -1061.381
+offset_top = -40.577
+offset_right = -1047.381
+offset_bottom = -26.577
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(1, 1, 1, 0.696)
+
+[node name="d57" type="ColorRect" parent="Decor"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 919.42
+offset_top = 884.077
+offset_right = 933.42
+offset_bottom = 898.077
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(1, 1, 1, 0.853)
+
+[node name="d58" type="ColorRect" parent="Decor"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 758.845
+offset_top = -698.926
+offset_right = 772.845
+offset_bottom = -684.926
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(1, 1, 1, 0.776)
+
+[node name="d59" type="ColorRect" parent="Decor"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 554.446
+offset_top = -411.285
+offset_right = 564.446
+offset_bottom = -401.285
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(1, 1, 1, 0.934)
+
+[node name="d60" type="ColorRect" parent="Decor"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -1210.845
+offset_top = -5.378
+offset_right = -1196.845
+offset_bottom = 8.622
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(1, 1, 1, 0.853)
+
+[node name="d61" type="ColorRect" parent="Decor"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -962.556
+offset_top = 707.433
+offset_right = -954.556
+offset_bottom = 715.433
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(1, 1, 1, 0.922)
+
+[node name="d62" type="ColorRect" parent="Decor"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 658.661
+offset_top = 790.129
+offset_right = 668.661
+offset_bottom = 800.129
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(1, 1, 1, 0.737)
+
+[node name="d63" type="ColorRect" parent="Decor"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -816.506
+offset_top = -24.733
+offset_right = -802.506
+offset_bottom = -10.733
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(1, 1, 1, 0.813)
+
+[node name="d64" type="ColorRect" parent="Decor"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -81.579
+offset_top = 433.232
+offset_right = -75.579
+offset_bottom = 439.232
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(1, 1, 1, 0.626)
+
+[node name="d65" type="ColorRect" parent="Decor"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 1808.943
+offset_top = 979.22
+offset_right = 1816.943
+offset_bottom = 987.22
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(1, 1, 1, 0.762)
+
+[node name="d66" type="ColorRect" parent="Decor"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 75.901
+offset_top = 273.149
+offset_right = 89.901
+offset_bottom = 287.149
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(1, 1, 1, 0.811)
+
+[node name="d67" type="ColorRect" parent="Decor"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 726.475
+offset_top = 728.462
+offset_right = 732.475
+offset_bottom = 734.462
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(1, 1, 1, 0.744)
+
+[node name="d68" type="ColorRect" parent="Decor"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -45.446
+offset_top = -288.538
+offset_right = -31.446
+offset_bottom = -274.538
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(1, 1, 1, 0.576)
+
+[node name="d69" type="ColorRect" parent="Decor"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 1425.685
+offset_top = -175.975
+offset_right = 1439.685
+offset_bottom = -161.975
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(1, 1, 1, 0.838)
+
+[node name="d70" type="ColorRect" parent="Decor"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 1819.327
+offset_top = -470.705
+offset_right = 1825.327
+offset_bottom = -464.705
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(1, 1, 1, 0.628)
+
+[node name="d71" type="ColorRect" parent="Decor"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 697.501
+offset_top = -1157.963
+offset_right = 711.501
+offset_bottom = -1143.963
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(1, 1, 1, 0.534)
+
+[node name="d72" type="ColorRect" parent="Decor"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 1580.094
+offset_top = -309.375
+offset_right = 1590.094
+offset_bottom = -299.375
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(1, 1, 1, 0.62)
+
+[node name="d73" type="ColorRect" parent="Decor"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -587.196
+offset_top = -852.226
+offset_right = -581.196
+offset_bottom = -846.226
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(1, 1, 1, 0.701)
+
+[node name="d74" type="ColorRect" parent="Decor"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -1308.538
+offset_top = -21.251
+offset_right = -1300.538
+offset_bottom = -13.251
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(1, 1, 1, 0.632)
+
+[node name="d75" type="ColorRect" parent="Decor"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 1741.328
+offset_top = 913.724
+offset_right = 1751.328
+offset_bottom = 923.724
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(1, 1, 1, 0.798)
+
+[node name="d76" type="ColorRect" parent="Decor"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -1279.341
+offset_top = -180.593
+offset_right = -1271.341
+offset_bottom = -172.593
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(1, 1, 1, 0.511)
+
+[node name="d77" type="ColorRect" parent="Decor"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 35.01
+offset_top = -167.022
+offset_right = 41.01
+offset_bottom = -161.022
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(1, 1, 1, 0.59)
+
+[node name="d78" type="ColorRect" parent="Decor"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 1708.205
+offset_top = 1033.186
+offset_right = 1714.205
+offset_bottom = 1039.186
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(1, 1, 1, 0.548)
+
+[node name="d79" type="ColorRect" parent="Decor"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 1580.828
+offset_top = -989.059
+offset_right = 1594.828
+offset_bottom = -975.059
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(1, 1, 1, 0.526)
+
+[node name="d80" type="ColorRect" parent="Decor"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -57.366
+offset_top = -538.107
+offset_right = -47.366
+offset_bottom = -528.107
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(1, 1, 1, 0.742)
+
+[node name="d81" type="ColorRect" parent="Decor"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 34.048
+offset_top = 39.949
+offset_right = 42.048
+offset_bottom = 47.949
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(1, 1, 1, 0.763)
+
+[node name="d82" type="ColorRect" parent="Decor"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 632.038
+offset_top = 701.913
+offset_right = 638.038
+offset_bottom = 707.913
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(1, 1, 1, 0.929)
+
+[node name="d83" type="ColorRect" parent="Decor"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -1255.889
+offset_top = 140.317
+offset_right = -1247.889
+offset_bottom = 148.317
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(1, 1, 1, 0.596)
+
+[node name="d84" type="ColorRect" parent="Decor"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 1742.5
+offset_top = -1078.857
+offset_right = 1752.5
+offset_bottom = -1068.857
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(1, 1, 1, 0.745)
+
+[node name="d85" type="ColorRect" parent="Decor"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 82.637
+offset_top = -324.366
+offset_right = 88.637
+offset_bottom = -318.366
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(1, 1, 1, 0.703)
+
+[node name="d86" type="ColorRect" parent="Decor"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 1728.808
+offset_top = -932.666
+offset_right = 1742.808
+offset_bottom = -918.666
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(1, 1, 1, 0.716)
+
+[node name="d87" type="ColorRect" parent="Decor"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 874.854
+offset_top = 210.63
+offset_right = 888.854
+offset_bottom = 224.63
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(1, 1, 1, 0.543)
+
+[node name="d88" type="ColorRect" parent="Decor"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -1476.62
+offset_top = -11.461
+offset_right = -1468.62
+offset_bottom = -3.461
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(1, 1, 1, 0.628)
+
+[node name="d89" type="ColorRect" parent="Decor"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 951.817
+offset_top = -413.464
+offset_right = 961.817
+offset_bottom = -403.464
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(1, 1, 1, 0.714)
+
+[node name="d90" type="ColorRect" parent="Decor"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -1061.675
+offset_top = 713.548
+offset_right = -1051.675
+offset_bottom = 723.548
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(1, 1, 1, 0.52)
+
+[node name="d91" type="ColorRect" parent="Decor"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 1062.495
+offset_top = 237.158
+offset_right = 1070.495
+offset_bottom = 245.158
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(1, 1, 1, 0.882)
+
+[node name="Walls" type="Node" parent="."]
+
+[node name="border_top" parent="Walls" instance=ExtResource("2_wall")]
+position = Vector2(0, -1300)
+scale = Vector2(42, 1)
+
+[node name="border_bottom" parent="Walls" instance=ExtResource("2_wall")]
+position = Vector2(0, 1300)
+scale = Vector2(42, 1)
+
+[node name="border_left" parent="Walls" instance=ExtResource("2_wall")]
+position = Vector2(-2050, 0)
+scale = Vector2(1, 25)
+
+[node name="border_right" parent="Walls" instance=ExtResource("2_wall")]
+position = Vector2(2050, 0)
+scale = Vector2(1, 25)
+
+[node name="Obstacles" type="Node" parent="."]
+
+[node name="obstacle_0" parent="Obstacles" instance=ExtResource("2_wall")]
+position = Vector2(1058.423, 567.59)
+rotation = 1.5177
+scale = Vector2(2.5, 2.5)
+
+[node name="obstacle_1" parent="Obstacles" instance=ExtResource("2_wall")]
+position = Vector2(-1058.423, -567.59)
+rotation = 1.5177
+scale = Vector2(2.5, 2.5)
+
+[node name="obstacle_2" parent="Obstacles" instance=ExtResource("2_wall")]
+position = Vector2(597.592, 303.233)
+rotation = 1.539416
+scale = Vector2(2.5, 2.5)
+
+[node name="obstacle_3" parent="Obstacles" instance=ExtResource("2_wall")]
+position = Vector2(-597.592, -303.233)
+rotation = 1.539416
+scale = Vector2(2.5, 2.5)
+
+[node name="obstacle_4" parent="Obstacles" instance=ExtResource("2_wall")]
+position = Vector2(65.743, 527.389)
+rotation = 1.269455
+scale = Vector2(1.5, 1.5)
+
+[node name="obstacle_5" parent="Obstacles" instance=ExtResource("2_wall")]
+position = Vector2(-65.743, -527.389)
+rotation = 1.269455
+scale = Vector2(1.5, 1.5)
+
+[node name="obstacle_6" parent="Obstacles" instance=ExtResource("2_wall")]
+position = Vector2(424.465, 805.251)
+rotation = 0.318706
+scale = Vector2(2.5, 2.5)
+
+[node name="obstacle_7" parent="Obstacles" instance=ExtResource("2_wall")]
+position = Vector2(-424.465, -805.251)
+rotation = 0.318706
+scale = Vector2(2.5, 2.5)
+
+[node name="obstacle_8" parent="Obstacles" instance=ExtResource("2_wall")]
+position = Vector2(1601.187, 625.198)
+rotation = 0.96491
+scale = Vector2(2.5, 2.5)
+
+[node name="obstacle_9" parent="Obstacles" instance=ExtResource("2_wall")]
+position = Vector2(-1601.187, -625.198)
+rotation = 0.96491
+scale = Vector2(2.5, 2.5)
+
+[node name="obstacle_10" parent="Obstacles" instance=ExtResource("2_wall")]
+position = Vector2(1103.043, 74.173)
+rotation = 0.238011
+scale = Vector2(1.5, 1.5)
+
+[node name="obstacle_11" parent="Obstacles" instance=ExtResource("2_wall")]
+position = Vector2(-1103.043, -74.173)
+rotation = 0.238011
+scale = Vector2(1.5, 1.5)
+
+[node name="obstacle_12" parent="Obstacles" instance=ExtResource("2_wall")]
+position = Vector2(1631.042, 174.548)
+rotation = 0.969684
+scale = Vector2(1.5, 1.5)
+
+[node name="obstacle_13" parent="Obstacles" instance=ExtResource("2_wall")]
+position = Vector2(-1631.042, -174.548)
+rotation = 0.969684
+scale = Vector2(1.5, 1.5)
+
+[node name="obstacle_14" parent="Obstacles" instance=ExtResource("2_wall")]
+position = Vector2(1329.639, 953.669)
+rotation = 1.453875
+scale = Vector2(1.5, 1.5)
+
+[node name="obstacle_15" parent="Obstacles" instance=ExtResource("2_wall")]
+position = Vector2(-1329.639, -953.669)
+rotation = 1.453875
+scale = Vector2(1.5, 1.5)
+
+[node name="obstacle_16" parent="Obstacles" instance=ExtResource("2_wall")]
+position = Vector2(934.413, 980.909)
+rotation = 1.281722
+scale = Vector2(1.5, 1.5)
+
+[node name="obstacle_17" parent="Obstacles" instance=ExtResource("2_wall")]
+position = Vector2(-934.413, -980.909)
+rotation = 1.281722
+scale = Vector2(1.5, 1.5)
+
+[node name="obstacle_18" parent="Obstacles" instance=ExtResource("2_wall")]
+position = Vector2(117.411, 134.657)
+rotation = 0.905366
+scale = Vector2(1.5, 1.5)
+
+[node name="obstacle_19" parent="Obstacles" instance=ExtResource("2_wall")]
+position = Vector2(-117.411, -134.657)
+rotation = 0.905366
+scale = Vector2(1.5, 1.5)

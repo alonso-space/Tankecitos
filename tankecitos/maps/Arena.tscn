@@ -1,8 +1,14 @@
 [gd_scene format=3]
 
 [ext_resource type="PackedScene" path="res://maps/Wall.tscn" id="1_wall"]
+[ext_resource type="Script" path="res://maps/game_map.gd" id="2_map"]
 
 [node name="Arena" type="Node2D"]
+script = ExtResource("2_map")
+display_name = "Arena"
+size_category = 1
+play_size = Vector2(2000, 1000)
+spawn_points = PackedVector2Array(-400, -400, 400, 400, -400, 400, 400, -400, 0, -400, 0, 400, -900, 150, 900, -150)
 
 [node name="Background" type="ColorRect" parent="."]
 anchors_preset = 8

@@ -5,7 +5,7 @@ class_name GameConfig
 
 # --- Red ---
 const PORT := 9080
-const MAX_PLAYERS := 8
+const MAX_PLAYERS := 16
 const SNAPSHOT_RATE := 30  # snapshots por segundo, servidor -> clientes
 const INPUT_RATE := 30  # envíos de input por segundo, cliente -> servidor
 const INPUT_TIMEOUT := 0.5  # sin input por este tiempo (s), el servidor frena el tanque
@@ -39,14 +39,41 @@ const BULLET_DAMAGE := 1
 const RESPAWN_TIME := 3.0
 const SPAWN_PROTECTION := 1.5  # invulnerable al reaparecer (se pierde al disparar)
 
-# Puntos de aparición: las 4 esquinas del juego original + 4 más para llegar a 8 jugadores
-const SPAWN_POINTS: Array[Vector2] = [
-	Vector2(-400, -400), Vector2(400, 400), Vector2(-400, 400), Vector2(400, -400),
-	Vector2(0, -400), Vector2(0, 400), Vector2(-900, 150), Vector2(900, -150),
+# --- Mapas ---
+# Lista de mapas. El índice es el id que viaja por red (servidor y cliente deben ser de la
+# misma versión). Cada mapa se clasifica solo con su flag size_category (ver maps/game_map.gd);
+# para añadir uno basta con crear la escena y sumarla aquí. Los puntos de aparición viven en cada mapa.
+const MAPS: Array[PackedScene] = [
+	# MINI (1-4 jugadores)
+	preload("res://maps/Dunas.tscn"),
+	preload("res://maps/CruzDeHielo.tscn"),
+	preload("res://maps/Contenedores.tscn"),
+	preload("res://maps/ArenaNeon.tscn"),
+	# SMALL (5-8 jugadores)
+	preload("res://maps/Arena.tscn"),
+	preload("res://maps/Selva.tscn"),
+	preload("res://maps/CiudadNocturna.tscn"),
+	preload("res://maps/AnilloOrbital.tscn"),
+	# MEDIUM (9-12 jugadores)
+	preload("res://maps/Volcan.tscn"),
+	preload("res://maps/CanonSerpentino.tscn"),
+	preload("res://maps/Zigurat.tscn"),
+	preload("res://maps/Archipielago.tscn"),
+	# LARGE (13-16 jugadores)
+	preload("res://maps/Laboratorio.tscn"),
+	preload("res://maps/TableroDulces.tscn"),
+	preload("res://maps/Fortaleza.tscn"),
+	preload("res://maps/Asteroides.tscn"),
 ]
+const MAP_ROTATION_SECONDS := 15.0 * 60.0  # cada cuánto cambia el mapa
+# Si entra un jugador y el mapa actual ya no le cabe, se cambia a uno de la categoría siguiente
+# sin esperar a la rotación. Ponlo en false para cambiar de mapa solo cada MAP_ROTATION_SECONDS.
+const MAP_CHANGE_WHEN_FULL := true
 
-# Colores por slot: los 4 primeros son los del juego original
+# Colores por slot: los 4 primeros son los del juego original; del 9 al 16, intermedios
 const PLAYER_COLORS: Array[Color] = [
 	Color(1, 0, 0), Color(0, 0, 1), Color(0, 1, 0), Color(1, 1, 0),
 	Color(0, 1, 1), Color(1, 0.5, 0), Color(0.7, 0.3, 1), Color(1, 0.4, 0.7),
+	Color(0, 0.55, 1), Color(1, 0.75, 0.55), Color(0.6, 0.7, 0.2), Color(0, 1, 0.5),
+	Color(1, 0.75, 0), Color(0.75, 0.7, 1), Color(1, 0.45, 0.35), Color(0.65, 0.4, 0.2),
 ]

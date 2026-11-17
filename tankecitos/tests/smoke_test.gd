@@ -63,6 +63,11 @@ func _run() -> void:
 
 
 @rpc("authority", "call_remote", "reliable")
+func receive_map(_new_map_id: int) -> void:
+	pass
+
+
+@rpc("authority", "call_remote", "reliable")
 func receive_player_list(player_ids: PackedInt32Array, slots: PackedInt32Array) -> void:
 	_players = player_ids.size()
 	for i in player_ids.size():

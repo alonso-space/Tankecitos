@@ -1,0 +1,31 @@
+# Levantar todo (desde la raíz del repo):
+#   HOST_IP=$(hostname -I | awk '{print $1}') docker compose up --build -d
+# Abrir:  https://<IP-del-PC>:8443  (aceptar el certificado una vez)  o  http://localhost:8000
+# Ver logs:  docker compose logs -f server      Parar:  docker compose down
+
+services:
+  server:
+    build:
+      context: .
+      target: server
+    restart: unless-stopped
+    ports:
+      - "9080:9080"   # solo lo usa el modo http://localhost:8000 (conexión directa)
+
+  web:
+    build:
+      context: .
+      target: web
+    restart: unless-stopped
+    depends_on:
+      - server
+    environment:
+      HOST_IP: ${HOST_IP:?Define HOST_IP, p. ej. HOST_IP=$(hostname -I | awk '{print $1}')}
+    ports:
+      - "8443:8443"
+      - "8000:8000"
+    volumes:
+      - caddy_data:/data   # conserva la CA interna: el certificado no cambia entre reinicios
+
+volumes:
+  caddy_data:
